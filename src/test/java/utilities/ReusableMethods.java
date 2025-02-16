@@ -2,6 +2,7 @@ package utilities;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
@@ -19,6 +20,8 @@ import java.time.Duration;
 import java.util.Date;
 
 public class ReusableMethods {
+
+    static AndroidDriver<AndroidElement> driver=Driver.getAndroidDriver();
 
     public static void koordinatTiklamaMethodu(int xkoordinati, int ykoordinati, int beklemesuresi) throws InterruptedException {
 
@@ -59,6 +62,23 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         WebElement clickableElement = wait.until(ExpectedConditions.elementToBeClickable(element));
         clickableElement.click();
+    }
+
+    public static void ekranKaydirmaMethodu(int xPress,int yPress,int wait,int xMove,int yMove){
+        TouchAction action=new TouchAction<>(driver);
+        action.press(PointOption.point(xPress,yPress))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(wait)))
+                .moveTo(PointOption.point(xMove,yMove))
+                .release()
+                .perform();
+    }
+
+    public static void wait(int saniye) {
+        try {
+            Thread.sleep(saniye * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 

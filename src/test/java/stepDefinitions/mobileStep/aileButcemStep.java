@@ -57,4 +57,47 @@ public class aileButcemStep {
         Driver.quitAppiumDriver();
     }
 
+    @Given("Kullanici anasayfadaki arti butonuna tiklar")
+    public void kullanici_anasayfadaki_arti_butonuna_tiklar() {
+        page.plusButton.click();
+    }
+
+
+    @When("{string} butonuna text uzerinden tiklar")
+    public void butonuna_text_uzerinden_tiklar(String eklemeSecenekleri) {
+        ReusableMethods.scrollWithUiScrollableAndClick(eklemeSecenekleri);
+    }
+
+    @When("{string} sayfasinda aciklama kismina {string} degeri girer")
+    public void sayfasinda_aciklama_kismina_degeri_girer(String sayfaBilgisi,String aciklamaDegeri) {
+        page.aciklamaKutusu.sendKeys(aciklamaDegeri);
+    }
+
+    @When("{string} sayfasinda Gelir Tipi olarak {string} secilir")
+    public void sayfasinda_gelir_tipi_olarak_secilir(String sayfaBilgisi,String gelirTipi) {
+        page.gelirTipiKutusu.click();
+        ReusableMethods.scrollWithUiScrollableAndClick(gelirTipi);
+    }
+
+    @When("{string} sayfasinda Kategori olarak {string} secilir")
+    public void sayfasinda_kategori_olarak_secilir(String sayfaBilgisi,String kategori) {
+        page.kategoriKutusu.click();
+        ReusableMethods.scrollWithUiScrollableAndClick(kategori);
+    }
+
+    @When("{string} sayfasinda Tarih belirlemesi yapar ve kac ay ilerleme olarak {string} secimi, gun olarak {string} girer")
+    public void sayfasinda_tarih_belirlemesi_yapar_ve_kac_ay_ilerleme_olarak_secimi_gun_olarak_girer(String sayfaBilgisi,int forBitis,String gun) {
+        page.tarihKaydirmaMethodu(forBitis,gun);
+    }
+
+    @When("{string} sayfasinda Tutar bilgisi olarak {string} girer")
+    public void sayfasinda_tutar_bilgisi_olarak_girer(String sayfaBilgisi, String string2) {
+
+    }
+
+    @Then("Gelirin basariyla eklendigini dogrular")
+    public void gelirin_basariyla_eklendigini_dogrular() {
+
+    }
+
 }

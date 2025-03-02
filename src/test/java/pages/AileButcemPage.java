@@ -41,6 +41,43 @@ public class AileButcemPage {
     @FindBy(xpath = "(//*[@class='android.widget.EditText'])[5]")
     public MobileElement meslekBox;
 
+    @FindBy(xpath = "(//*[@class='android.widget.TextView'])[2]")
+    public MobileElement girisYapButonu;
+
+    @FindBy(xpath = "//*[@text='Başarıyla giriş yapıldı.']")
+    public MobileElement girisYazisiDogrulama;
+
+    @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[5]")
+    public MobileElement plusButton;
+
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public MobileElement aciklamaKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public MobileElement tutarKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[10]")
+    public MobileElement gelirTipiKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[11]")
+    public MobileElement kategoriKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[12]")
+    public MobileElement tarihKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[5]")
+    public MobileElement tarihKutusu2;
+
+    @FindBy(id = "android:id/button1")
+    public MobileElement okButton;
+
+    @FindBy(xpath = "//*[@text='Gelir eklendi.']")
+    public MobileElement gelirEklediText;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[11]")
+    public MobileElement gelirPeriyodu;
+
+
     public void ilkEkranAyarlari(){
         ReusableMethods.wait(2);
         for (int i = 0; i < 6; i++) {
@@ -80,6 +117,14 @@ public class AileButcemPage {
         Assert.assertTrue(meslekBox.getText().contains(ConfigReader.getProperty(meslek)));
     }
 
-
+    public void tarihKaydirmaMethodu(int forBitis,String gun){
+        tarihKutusu.click();
+        ReusableMethods.wait(2);
+        for (int i=0; i<forBitis;i++){
+            ReusableMethods.ekranKaydirmaMethodu(818,1056,750,260,1056);
+        }
+        ReusableMethods.scrollWithUiScrollableAndClick(gun);
+        okButton.click();
+    }
 
 }

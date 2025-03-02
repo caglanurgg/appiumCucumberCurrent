@@ -15,7 +15,7 @@ public class Driver {
     private static AndroidDriver<AndroidElement> appiumDriver;
     private static IOSDriver<IOSElement> iosDriver;
 
-    static final String TELEFONADI="Pixel 2";
+    static final String TELEFONADI="Pixel 22";
     static final String ANDROIDVERSION="10.0";
     static final String PLATFORM="Android";
     static final String OTOMASYON_ISMI="UiAutomator2";
@@ -24,7 +24,7 @@ public class Driver {
     public static AndroidDriver getAndroidDriver()  {
         URL appiumServerURL = null;
         try {
-            appiumServerURL = new URL("http:127.0.0.1:4723/wd/hub");
+            appiumServerURL = new URL("http://127.0.0.1:4723/wd/hub");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -36,8 +36,8 @@ public class Driver {
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ANDROIDVERSION);
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
-            caps.setCapability("appPackage", ConfigReader.getProperty("com.ailebutcem"));
-            caps.setCapability("appActivity", ConfigReader.getProperty("com.ailebutcem.MainActivity"));
+            caps.setCapability("appPackage", ConfigReader.getProperty("appPackage"));
+            caps.setCapability("appActivity", ConfigReader.getProperty("appActivity"));
 
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
             /* eger bu capability FALSE olarak kullanilirsa,uygulama test edildikten sonra her seferinde kullanici datalari temizlenir ve

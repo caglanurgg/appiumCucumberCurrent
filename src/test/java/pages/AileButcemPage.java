@@ -101,11 +101,11 @@ public class AileButcemPage {
 
     public void hesabimBilgileriniDegistirmeVeKaydetme(String isim,String soyisim,String sehir,String yas,String meslek){
         hesabimBilgileriniTemizleme();
-        isimBox.sendKeys(isim);
-        soyisimBox.sendKeys(soyisim);
-        sehirBox.sendKeys(sehir);
-        yasBox.sendKeys(yas);
-        meslekBox.sendKeys(meslek);
+        isimBox.sendKeys(ConfigReader.getProperty(isim));
+        soyisimBox.sendKeys(ConfigReader.getProperty(soyisim));
+        sehirBox.sendKeys(ConfigReader.getProperty(sehir));
+        yasBox.sendKeys(ConfigReader.getProperty(yas));
+        meslekBox.sendKeys(ConfigReader.getProperty(meslek));
         ReusableMethods.scrollWithUiScrollableAndClick("Kaydet");
     }
 
@@ -121,7 +121,7 @@ public class AileButcemPage {
         tarihKutusu.click();
         ReusableMethods.wait(2);
         for (int i=0; i<forBitis;i++){
-            ReusableMethods.ekranKaydirmaMethodu(818,1056,750,260,1056);
+            ReusableMethods.ekranKaydirmaMethodu(811,1052,750,241,1052);
         }
         ReusableMethods.scrollWithUiScrollableAndClick(gun);
         okButton.click();

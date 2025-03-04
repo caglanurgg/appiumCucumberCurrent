@@ -1,4 +1,4 @@
-
+@aileButcem
     Feature: Aile Butcem uygulamasi fonksiyonlari test edilir
       Background:
         Given Uygulama ilk ekran ayarlari yapilir
@@ -6,7 +6,6 @@
         When  "testfort108@gmail.com" ve "t108t108" bilgilerini girerek giris yapar
         Then Kullanicinin basarili sekilde giris yaptigi dogrulanir
 
-      @aileButcem
     Scenario Outline: Kullanici hesabini yonetir ve bilgilerini gunceller
 
       When Kullanici sol menuden 102 121 "Hesabım" bolumune gider
@@ -32,7 +31,7 @@
         Then Gelirin basariyla eklendigini dogrular
         And Kullanici uygulamayi kapatir
 
-      @new
+
       Scenario: Kullanici maas geliri ekler
 
         Given Kullanici anasayfadaki arti butonuna tiklar
@@ -46,6 +45,7 @@
         And "Kaydet" butonuna text uzerinden tiklar
         Then Gelirin basariyla eklendigini dogrular
         And Kullanici uygulamayi kapatir
+
 
       Scenario: bu seneryo ulasim icin bir gider eklemek icin kullanildi
 

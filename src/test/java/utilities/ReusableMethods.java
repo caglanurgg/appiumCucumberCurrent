@@ -80,5 +80,11 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
-}
+
+        public static WebElement waitForVisibility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(BrowserDriver.getBrowserDriver(), timeout);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+        }
+    }
+
 
